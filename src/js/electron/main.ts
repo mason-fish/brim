@@ -65,7 +65,6 @@ async function main() {
   app.on("activate", () => brim.activate())
 
   // TODO: remove this if above handler works better?
-  log.info("dist swapping is working!")
   app.setAsDefaultProtocolClient("brim")
 
   app.on("open-url", (event, url) => {
