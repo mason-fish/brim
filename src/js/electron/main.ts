@@ -4,7 +4,7 @@ import userTasks from "./userTasks"
 // app path and log setup should happen before other imports.
 appPathSetup()
 
-import {app, protocol} from "electron"
+import {app} from "electron"
 import log from "electron-log"
 import "regenerator-runtime/runtime"
 import {setupAutoUpdater} from "./autoUpdater"
@@ -42,7 +42,6 @@ async function main() {
   const brimCustomProtocol = "brim"
   app.setAsDefaultProtocolClient(brimCustomProtocol)
   app.on("second-instance", (e, argv) => {
-    log.info("second-instance argv is: ", argv)
     for (let arg of argv) {
       // handle custom protocol url handling for windows here
       if (arg.startsWith(`${brimCustomProtocol}://`)) return brim.openUrl(arg)
