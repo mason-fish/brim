@@ -39,10 +39,14 @@ async function main() {
     })
   }
 
+  const brimCustomProtocol = "brim"
+  app.setAsDefaultProtocolClient(brimCustomProtocol)
   app.on("second-instance", (e, argv) => {
     log.info("second-instance argv is: ", argv)
-    log.info("second-instance event is: ", e)
     for (let arg of argv) {
+      // handle custom protocol url handling for windows here
+      if (arg.startsWith(`${brimCustomProtocol}://`)) return brim.openUrl(arg)
+
       switch (arg) {
         case "--new-window":
           brim.windows.openWindow("search")
@@ -54,21 +58,10 @@ async function main() {
     }
   })
 
-  app.whenReady().then(() => {
-    protocol.registerHttpProtocol("testbrim", (req, cb) => {
-      log.info("registerHttpProtocol caught!, url is: ", req.url)
-      // @ts-ignore
-      cb(req.url)
-    })
-    brim.start()
-  })
+  app.whenReady().then(() => brim.start())
   app.on("activate", () => brim.activate())
 
-  // TODO: remove this if above handler works better?
-  app.setAsDefaultProtocolClient("testbrim")
-
   app.on("open-url", (event, url) => {
-    log.info("open-url caught!, url is: ", url)
     // recommended to preventDefault in docs: https://www.electronjs.org/docs/api/app#event-open-url-macos
     event.preventDefault()
     brim.openUrl(url)
