@@ -20,6 +20,14 @@
     ],
     "appId": "com.brimsecurity.brim",
     "extends": null,
+    "protocols": [
+      {
+        "name": "testbrim",
+        "schemes": [
+          "testbrim"
+        ]
+      }
+    ],
     "win": {
       "target": "nsis"
     }

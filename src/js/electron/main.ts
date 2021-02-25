@@ -55,7 +55,7 @@ async function main() {
   })
 
   app.whenReady().then(() => {
-    protocol.registerHttpProtocol("brim", (req, cb) => {
+    protocol.registerHttpProtocol("testbrim", (req, cb) => {
       log.info("registerHttpProtocol caught!, url is: ", req.url)
       // @ts-ignore
       cb(req.url)
@@ -65,7 +65,7 @@ async function main() {
   app.on("activate", () => brim.activate())
 
   // TODO: remove this if above handler works better?
-  app.setAsDefaultProtocolClient("brim")
+  app.setAsDefaultProtocolClient("testbrim")
 
   app.on("open-url", (event, url) => {
     log.info("open-url caught!, url is: ", url)
