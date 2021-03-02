@@ -36,6 +36,13 @@
     "win": {
       "target": "nsis",
       "icon": "./dist/static/AppIcon.ico"
+    },
+    "linux": {
+      "maintainer": "Brim Security, Inc.",
+      "target": [
+        "deb",
+        "rpm"
+      ]
     }
   },
   "scripts": {
