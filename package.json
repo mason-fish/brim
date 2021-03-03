@@ -31,7 +31,8 @@
     "mac": {
       "entitlements": "./scripts/release/entitlements.mac.plist",
       "entitlementsInherit": "./scripts/release/entitlements.mac.plist",
-      "icon": "./dist/static/AppIcon.icns"
+      "icon": "./dist/static/AppIcon.icns",
+      "publish": ["github"]
     },
     "win": {
       "target": "nsis",
