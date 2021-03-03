@@ -59,7 +59,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           set -x
-          node scripts/release --linux
+          npx electron-builder --linux
       - name: Persist Linux packages
         if: runner.os == 'Linux'
         uses: actions/upload-artifact@v1
@@ -171,7 +171,7 @@ jobs:
       #        run: |
       #          set -x
       #          source scripts/lib/common.bash
-      #          node scripts/release --darwin
+      #          npx electron-builder --mac
       #          hdiutil attach dist/installers/Brim.dmg
       #          cp -R /Volumes/Brim/Brim.app /Applications
       #          retry_until_success 60 1 umount_macos_ci_dimg /Volumes/Brim
