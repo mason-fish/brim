@@ -1,9 +1,9 @@
 {
   "name": "Brim",
   "description": "Brim Desktop App",
-  "repository": "https://github.com/brimsec/brim",
+  "repository": "https://github.com/mason-fish/brim",
   "license": "BSD-3-Clause",
-  "version": "0.23.0",
+  "version": "1.0.0",
   "main": "dist/src/js/electron/main.js",
   "author": "Brim Security, Inc.",
   "bin": {
@@ -32,7 +32,9 @@
       "entitlements": "./scripts/release/entitlements.mac.plist",
       "entitlementsInherit": "./scripts/release/entitlements.mac.plist",
       "icon": "./dist/static/AppIcon.icns",
-      "publish": ["github"]
+      "publish": [
+        "github"
+      ]
     },
     "win": {
       "target": "nsis",
