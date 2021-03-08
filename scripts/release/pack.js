@@ -5,7 +5,8 @@ let opts = {
   dir: ".",
   out: "dist/packages",
   overwrite: true,
-  name: "Brim"
+  name: "Brim",
+  helperBundleId: "com.brimsecurity.brim"
 }
 
 module.exports = {
